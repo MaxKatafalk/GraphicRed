@@ -6,11 +6,28 @@ using System.ComponentModel;
 
 public abstract class Shape
 {
-    public Point Location { get; set; }
-    public Color Color { get; set; }
-    public bool IsSelected { get; set; }
-    public abstract Rectangle GetBounds();
+    private Point location;
+    private Color color;
+    private bool isSelected;
+    public Point Location
+    {
+        get { return location; }
+        set { location = value; }
+    }
 
+    public Color Color
+    {
+        get { return color; }
+        set { color = value; }
+    }
+
+    public bool IsSelected
+    {
+        get { return isSelected; }
+        set { isSelected = value; }
+    }
+
+    public abstract Rectangle GetBounds();
     public abstract void Draw(Graphics graphics);
     public abstract bool ContainsPoint(Point point);
 
@@ -25,9 +42,8 @@ public abstract class Shape
                 graphics.DrawRectangle(selectionPen, bounds);
             }
         }
-
     }
-    
+
     public virtual void Move(int deltaX, int deltaY)
     {
         Location = new Point(deltaX + Location.X, deltaY + Location.Y);

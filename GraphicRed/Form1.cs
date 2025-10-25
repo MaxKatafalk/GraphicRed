@@ -38,7 +38,6 @@ namespace GraphicRed
 
             toolStrip.Items.AddRange(new ToolStripItem[] {
                 rectButton, circleButton, triangleButton,
-                new ToolStripSeparator(),
                 colorButton, deleteButton
             });
 
